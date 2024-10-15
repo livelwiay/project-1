@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zareefah Nawar</title>
+    <style>
+        body {
+            font-family: 'Trebuchet MS';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align-last : center;
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1519843405077-a95758ac3d8e?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            margin: 0;
+        }
+        h1 {
+            color: #FFC0CB;
+        }
+    </style>
+</head>
+<body>
+    <h1>HIII MY SWEETHEART,<p>
+        i just wanna let you know that you are my prettiest little princess and i love you so much. ever since u came into my life, it has changed everything. i wanna treat you so good and i cant stop thinking about yesterday. everything you do it just amaze me how good of a girl i have. dont ever think of leaving me. MWAH I LOVE YOU. made this website to write this for you hehe<p> I LOVE YOU SO MUCH ZAREEFAH 🫶🏻
+    </h1>
+</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Floating Hearts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Gloock:wght@400&display=swap" rel="stylesheet"> <!-- Added Google Fonts -->
+  <style>
+    body {
+      background-color: #e0e0ff; /* Light background for contrast */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+      position: relative; /* For absolute positioning of the pop-up */
+    }
+    .heart {
+      position: absolute;
+      font-size: 30px;
+      animation: float 4s ease-in-out infinite;
+      opacity: 0.8;
+      color: #4728aa; /* Updated color */
+      text-shadow: 0 0 20px #9a6fdf, 0 0 30px #9a6fdf; /* Adjusted glow color */
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0); /* Start at the bottom */
+      }
+      100% {
+        transform: translateY(-100vh); /* Move off screen */
+      }
+    }
+    .popup {
+      position: fixed;
+      bottom: -100px; /* Start off screen */
+      left: 50%;
+      transform: translate(-50%, 0);
+      background-color: #000; /* Fully black background */
+      border: 2px solid #4728aa; /* Updated border color */
+      padding: 20px;
+      border-radius: 10px;
+      font-family: 'Gloock', serif; /* Set to Roman Italic font */
+      font-size: 50px; /* Bigger font size */
+      color: #4728aa; /* Updated font color */
+      text-align: center;
+      box-shadow: 0 0 20px rgba(128, 128, 255, 0.5); /* Updated shadow color */
+      display: none; /* Initially hidden */
+      width: 80%; /* Cover 80% of the screen width */
+      z-index: 10; /* Ensure the pop-up is above other elements */
+    }
+    @keyframes slideUp {
+      0% {
+        bottom: -100px; /* Start off screen */
+        transform: translate(-50%, 0) scale(0.5); /* Start small */
+      }
+      50% {
+        transform: translate(-50%, 50%) scale(1.1); /* Grow slightly */
+      }
+      100% {
+        bottom: 50%; /* End in the middle */
+        transform: translate(-50%, 50%) scale(1); /* Final size */
+      }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const heartContainer = document.body;
+    const hearts = ["💌", "💘", "💝", "❣️", "💞", "💓", "💖", "🤭", "💗"]; // Added new emojis
+    const message = "I love you, Zareefah";
+    const messageEmojis = ["💖", "💗", "💘", "💖", "💓", "💞", "❤️", "💘", "💌", "💖", "💝", "❣️", "💞", "🤭", "💓"]; // Emojis for the message
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = hearts[Math.floor(Math.random() * hearts.length)]; // Randomly select a heart emoji
+      
+      // Randomize starting horizontal position
+      heart.style.left = Math.random() * 100 + "vw"; // Random horizontal position
+      heart.style.bottom = "0"; // Start from the bottom
+      heart.style.animationDuration = (Math.random() * 2 + 3) + "s"; // Randomize speed
+
+      // Append and remove heart after animation
+      heartContainer.appendChild(heart);
+      setTimeout(() => {
+        heart.remove();
+      }, 4000);
+    }
+
+    // Create a heart at a random position every 800 milliseconds
+    setInterval(createHeart, 500);
+
+    // Function to show pop-up
+    function showPopup() {
+      const popup = document.createElement('div');
+      popup.classList.add('popup');
+      popup.textContent = "Will you marry me, Zareefah Nawar? 💍";
+      document.body.appendChild(popup);
+      popup.style.display = 'block'; // Show the pop-up
+      popup.style.animation = 'slideUp 1s forwards'; // Start animation
+
+      // Hide the pop-up after 5 seconds
+      setTimeout(() => {
+        popup.style.display = 'none';
+        popup.remove(); // Remove the pop-up from the DOM
+      }, 5000); // Stay for 5 seconds
+    }
+
+    // Show the pop-up after 20 seconds, then every 20 seconds
+    setTimeout(() => {
+      showPopup();
+      setInterval(showPopup, 20000); // Repeat every 20 seconds
+    }, 20000);
+
+    // Function to create a trailing emoji
+    function createTrailEmoji(x, y) {
+      const trailEmoji = document.createElement('div');
+      trailEmoji.classList.add('heart');
+      
+      // Determine the emoji to display based on mouse position in relation to the message
+      const index = Math.floor(Math.random() * message.length); // Random index for emojis
+      const emojiIndex = Math.floor(index / Math.ceil(message.length / messageEmojis.length)); // Select an emoji for the message
+      trailEmoji.textContent = messageEmojis[emojiIndex]; // Corresponding emoji
+      trailEmoji.style.position = 'absolute';
+      trailEmoji.style.left = `${x}px`;
+      trailEmoji.style.top = `${y}px`;
+      trailEmoji.style.opacity = '1';
+      trailEmoji.style.transition = 'opacity 1s ease-out';
+      heartContainer.appendChild(trailEmoji);
+      
+      // Fade out and remove the emoji after 1 second
+      setTimeout(() => {
+        trailEmoji.style.opacity = '0';
+        setTimeout(() => {
+          trailEmoji.remove();
+        }, 1000); // Remove after fading out
+      }, 0);
+    }
+
+    // Event listener for mouse movement
+    let lastTime = 0;
+    document.addEventListener('mousemove', (e) => {
+      const currentTime = Date.now();
+      if (currentTime - lastTime > 100) { // Create an emoji every 100ms
+        createTrailEmoji(e.clientX, e.clientY);
+        lastTime = currentTime;
+      }
+    });
+  </script>
+</body>
+</html>
